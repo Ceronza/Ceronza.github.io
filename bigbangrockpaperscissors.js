@@ -1,10 +1,10 @@
 /*Starts the initial user input */
-var userChoice = prompt("Do you choose rock, paper or scissors?");
+var userChoice = prompt("Do you choose rock, paper, scissors, lizard or spock?");
 
 
 /* A loop check ensure correct input is given */
-while (userChoice != "rock" && userChoice != "scissors" && userChoice != "paper") {
-    userChoice = prompt("Wrong selection. Please select from rock, paper or scissors.");
+while (userChoice != "rock" && userChoice != "scissors" && userChoice != "paper" && userChoice != "lizard" && userChoice != "spock") {
+    userChoice = prompt("Wrong selection. Please select from rock, paper, scissors, lizard or spock.");
 }
 
 
@@ -15,56 +15,114 @@ I still think there is a way to remove the code duplication here by adding a fun
 
 */
     var computerChoice = Math.random();
-    if (computerChoice < 0.34) {
+    if (computerChoice < 0.21) {
         computerChoice = "rock";
     } 
-    else if(computerChoice <= 0.67) {
+    else if(computerChoice <= 0.41) {
         computerChoice = "paper";
+    }
+    else if(computerChoice <= 0.61) {
+        computerChoice = "scissors";
+    } 
+    else if(computerChoice <= 0.81) {
+        computerChoice = "lizard";
     } 
     else {
-        computerChoice = "scissors";
+        computerChoice = "spock";
     } 
 
 /* This while loop looks for a tie in the user and computer input. If there is it runs the computer input again.*/
 while (userChoice === computerChoice) {
     userChoice = prompt("The result is a tie. Let's try again. Select rock scissors or paper.");
             var computerChoice = Math.random();
-                if (computerChoice < 0.34) {
-                    computerChoice = "rock";
-                } 
-                else if(computerChoice <= 0.67) {
-                    computerChoice = "paper";
-                }
-                else {
-                    computerChoice = "scissors";
-                }
+            if (computerChoice < 0.21) {
+                computerChoice = "rock";
+            }
+            else if(computerChoice <= 0.41) {
+                computerChoice = "paper";
+            }
+            else if(computerChoice <= 0.61) {
+                computerChoice = "scissors";
+            }
+            else if(computerChoice <= 0.81) {
+                computerChoice = "lizard";
+            }
+            else {
+                computerChoice = "spock";
+            }
         }
 
 
 /* the compare function that defines which input wins */
-var compare = function(choice1, choice2) {
-    if (choice1 === "rock") {
-        if (choice2 === "scissors") {
+var compare = function(uchoice, cchoice) {
+    if (uchoice === "rock") {
+        if (cchoice === "scissors") {
             return "rock wins";
+        }
+        else if (cchoice === "paper") {
+            return "paper wins";
+        }
+        else if (cchoice === "lizard") {
+            return "rock wins";
+        }
+        else {
+            return "spock wins";
+        }
+    }
+    else if (uchoice === "paper") {
+        if (cchoice === "scissors") {
+            return "scissors wins";
+        }
+        else if (cchoice === "rock") {
+            return "paper wins";
+        }
+        else if (cchoice === "lizard") {
+            return "lizard wins";
         }
         else {
             return "paper wins";
         }
     }
-    else if (choice1 === "paper") {
-        if (choice2 === "rock") {
-            return "paper wins";
+    else if (uchoice === "scissors") {
+         if (cchoice === "paper") {
+            return "scissors wins";
+        }
+        else if (cchoice === "rock") {
+            return "rock wins";
+        }
+        else if (cchoice === "lizard") {
+            return "scissors wins";
         }
         else {
-            return "scissors wins";
+            return "spock wins";
         }
     }
-    else if (choice1 === "scissors") {
-        if (choice2 === "paper") {
+    else if (uchoice === "lizard") {
+         if (cchoice === "paper") {
+            return "lizard wins";
+        }
+        else if (cchoice === "rock") {
+            return "rock wins";
+        }
+        else if (cchoice === "scissors") {
             return "scissors wins";
         }
         else {
-            return "rock wins";
+            return "spock wins";
+        }
+    }
+    else if (uchoice === "spock") {
+         if (cchoice === "paper") {
+            return "paper wins";
+        }
+        else if (cchoice === "rock") {
+            return "spock wins";
+        }
+        else if (cchoice === "scissors") {
+            return "spock wins";
+        }
+        else {
+            return "lizzard wins";
         }
     }
 }
