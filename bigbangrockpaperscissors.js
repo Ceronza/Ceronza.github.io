@@ -7,8 +7,6 @@ while (userChoice != "rock" && userChoice != "scissors" && userChoice != "paper"
     userChoice = prompt("Wrong selection. Please select from rock, paper, scissors, lizard or spock.");
 }
 
-
-
 /*This generates the first random computer input to allow the first while loop to compare for a tie.
 
 I still think there is a way to remove the code duplication here by adding a function. Let's work out how to do this.
@@ -111,7 +109,7 @@ var compare = function(uchoice, cchoice) {
             return "spock wins";
         }
     }
-    else if (uchoice === "spock") {
+    else {
          if (cchoice === "paper") {
             return "paper wins";
         }
@@ -122,7 +120,7 @@ var compare = function(uchoice, cchoice) {
             return "spock wins";
         }
         else {
-            return "lizzard wins";
+            return "lizard wins";
         }
     }
 }
